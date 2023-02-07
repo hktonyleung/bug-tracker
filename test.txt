@@ -1,0 +1,20 @@
+1. User Login
+curl -X POST http://127.0.0.1:8000/accounts/api/v1/login -H "Content-Type:application/json" -d '{"username": "user02", "password": "user02"}'
+
+2. Create new bug (Replace %TOKEN_VALUE%)
+curl -X POST http://127.0.0.1:8000/bugs/api/v1 -H "Content-Type:application/json" -d '{"title": "Title 1", "desc": "Desc 1", "is_open": "true", "handle_by": 1}' -H "Authorization: Token %TOKEN_VALUE%"
+
+3. List all bugs (Replace %TOKEN_VALUE%)
+curl -X GET http://127.0.0.1:8000/bugs/api/v1 -H "Content-Type:application/json" -H "Authorization: Token %TOKEN_VALUE%"
+
+4. Update the title and description and Assign bug to people (Replace %TOKEN_VALUE%)
+curl -X PUT http://127.0.0.1:8000/bugs/api/v1/1 -H "Content-Type:application/json" -d '{"title": "Title 1 Update", "desc": "Desc 1 Update", "is_open": "true", "handle_by": 2}' -H "Authorization: Token %TOKEN_VALUE%"
+
+5. Show a bug details (Replace %TOKEN_VALUE%)
+curl -X GET http://127.0.0.1:8000/bugs/api/v1/1 -H "Content-Type:application/json" -H "Authorization: Token %TOKEN_VALUE%"
+
+6. Close a bug (Replace %TOKEN_VALUE%)
+curl -X PUT http://127.0.0.1:8000/bugs/api/v1/1 -H "Content-Type:application/json" -d '{"title": "Title 1 Update", "desc": "Desc 1 Update", "is_open": "false", "handle_by": 2}' -H "Authorization: Token %TOKEN_VALUE%"
+
+7. Change people username (Replace %TOKEN_VALUE%)
+curl -X PUT http://127.0.0.1:8000/accounts/api/v1/update -H "Content-Type:application/json" -d '{"new_username": "user0999"}' -H "Authorization: Token %TOKEN_VALUE%"
